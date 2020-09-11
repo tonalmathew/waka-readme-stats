@@ -12,9 +12,9 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/status', (req, res) => {
-    // const api_key = process.env.API_KEY
-    // const url = `https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=${api_key}`
-    const url = 'https://wakatime.com/share/@tonalmathew/81a321dd-ae2d-42db-9edc-9511e238b04a.json'
+    const api_key = process.env.API_KEY
+    const url = `https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=${api_key}`
+    // const url = 'https://wakatime.com/share/@tonalmathew/81a321dd-ae2d-42db-9edc-9511e238b04a.json'
     axios.get(url)
     .then((response)=>{
         res.send(response.data)
