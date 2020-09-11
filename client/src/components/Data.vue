@@ -1,6 +1,7 @@
 <template>
   <div class="data">
     <!-- <p>{{ User.data.languages }}</p> -->
+    <svg>
     <table>
         <tr class="name-and-percent" v-for="lang in User">
           <td>{{ lang.name }}</td>
@@ -18,6 +19,7 @@
           <td>({{ lang.percent }} %)</td>
         </tr>
       </table>
+      </svg>
   </div>
 </template>
 
@@ -32,10 +34,11 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line no-undef
+    // const link = `http://${process.env.PORT}/status`
     axios.get('http://localhost:8081/status/')
       .then((response) => {
-        console.log(response.data.data.languages)
-        this.User = response.data.data.languages
+        console.log(response.data.data)
+        this.User = response.data.data
       })
       .catch((err) => {
         console.log(err)
